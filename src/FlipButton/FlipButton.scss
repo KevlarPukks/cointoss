@@ -17,3 +17,33 @@ button:disabled{
   color: black;
 background-color: black;
 }
+.results{
+  display: flex;
+  width: 75%;
+  justify-content: space-between;
+
+animation-name: change-color;
+  animation-duration: 2s;
+p{
+
+}
+}
+@keyframes change-color1{
+  0%{
+    background-color: initial;
+  }
+  50%{
+    background-color: red;
+  }
+  100%{
+background-color: initial;
+  }
+}
+@keyframes change-color2 {
+  0% {
+    transform: rotateX(0);
+  }
+  100% {
+    transform: rotateX(2160deg);
+  }
+}
