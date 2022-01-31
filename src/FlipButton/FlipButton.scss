@@ -15,28 +15,37 @@ background-color: yellowgreen;
 }
 button:disabled{
   color: black;
-background-color: black;
+
+  animation-name: change-color1;
+  animation-timing-function: ease;
+  animation-duration: 3s;
 }
 .results{
   display: flex;
   width: 75%;
   justify-content: space-between;
 
-animation-name: change-color;
-  animation-duration: 2s;
+
 p{
 
 }
 }
 @keyframes change-color1{
   0%{
-    background-color: initial;
+    background-color: yellowgreen;
+    color: yellowgreen;
   }
-  50%{
-    background-color: red;
+  25%{
+    background-color: darkslateblue;
+    color: darkslateblue;
+  }
+  75%{
+background-color: indianred;
+    color: indianred;
   }
   100%{
-background-color: initial;
+background-color: yellowgreen;
+    color: black;
   }
 }
 @keyframes change-color2 {
