@@ -1,21 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
-
+import Coin from './coin/Coin'
+import FlipButton from './FlipButton/FlipButton'
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+
+<Coin />
+
         <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+         Toss A Coin
+        </p> <FlipButton />
         <a
           className="App-link"
-          href="https://reactjs.org"
+          href="https://pukks.online"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          pukks.online
         </a>
       </header>
     </div>
