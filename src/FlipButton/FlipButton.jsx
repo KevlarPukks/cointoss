@@ -1,10 +1,28 @@
 import './FlipButton.css'
-import {useState} from "react";
+import Results from '../Results/Results'
+import {useEffect, useState} from "react";
 
 function FlipButton() {
 const [heads,setHeads]= useState(0)
     const [tails,setTails]= useState(0)
 
+    useEffect(function getLocalStorageItems() {
+        let headsLocal = localStorage.getItem('heads');
+        if(headsLocal){
+           setHeads(parseInt(headsLocal))
+       }
+        let tailsLocal = localStorage.getItem('tails');
+
+        if(tailsLocal){
+            setTails(parseInt(tailsLocal))
+        }
+    }, []);
+
+
+    useEffect(function setLocalStorageItems(){
+        localStorage.setItem('tails',(tails).toString())
+        localStorage.setItem('heads',(heads).toString())
+    }, [tails,heads]);
 
     function flipCoin() {
         let coin = document.querySelector('.coin')
@@ -29,24 +47,25 @@ flipButton.disabled = true
             flipButton.disabled = false
             if(headsResult){
                 setHeads(heads+1)
+
             }else {
                 setTails(tails+1)
+
             }
+
+
         },3000)
     }
 function reset() {
-    let flipButton = document.querySelector('.flipButton')
-    let coin = document.querySelector('.coin')
+setHeads(0)
+    setTails(0)
 
 
 }
     return(<>
-        <div className="results">
-
-            <p>Heads:{heads}</p>
-            <p>Tails:{tails}</p>
-        </div>
+        <Results heads={heads} tails={tails}/>
         <button className='flipButton' onClick={flipCoin}>Flip</button>
+        <button className='flipButton' onClick={reset}>Reset</button>
 </>  )
 }
 
